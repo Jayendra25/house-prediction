@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Prediction {
+  id                    String   @id @default(cuid())
+  living_area           Float
+  bedrooms              Int
+  bathrooms             Float
+  built_year            Int
+  postal_code           Int
+  grade                 Int
+  condition             Int
+  distance_from_airport Float
+  schools_nearby        Int
+  predicted_price       Float
+  createdAt             DateTime @default(now())
+}
